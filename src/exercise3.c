@@ -1,27 +1,32 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main (int argc, char** argv) {
-    double arr[10];
+#define SIZE 10
 
-    for (int i = 0; i < 10; i++) {
+int main() {
+    double arr[SIZE];
+    int K;
+
+    for (int i = 0; i < SIZE; i++) {
         scanf("%lf", &arr[i]);
     }
 
-    int k;
-    scanf("%d", &k);
+    scanf("%d", &K);
 
-
-    if (k < 0) {
-        for (int i = 0; i < 10; i++) {
-            printf("%.2f ",arr[(i + k * (-1)) % 10]);
-        }
+    K = K % SIZE;
+    if (K < 0) {
+        K += SIZE;
     }
 
+    double temp[SIZE];
 
-    if (k > 0) {
-        for (int i = 0; i < 10; i++) {
-            printf("%.2f ", arr[(i - k + 10) % 10]);
-        }
+    for (int i = 0; i < SIZE; i++) {
+        temp[(i + K) % SIZE] = arr[i];
     }
+
+    for (int i = 0; i < SIZE; i++) {
+        printf("%.2f ", temp[i]);
+    }
+    printf("\n");
+
+    return 0;
 }

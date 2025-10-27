@@ -1,14 +1,18 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main (int argc, char** argv) {
+int main() {
     double arr[10];
+
 
     for (int i = 0; i < 10; i++) {
         scanf("%lf", &arr[i]);
     }
 
+
     for (int i = 9; i >= 0; i--) {
-        printf("%.1lf ", arr[i]);
+        printf("%.2f ", arr[i]);
     }
+    printf("\n");
+
+    return 0;
 }
