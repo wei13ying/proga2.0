@@ -1,19 +1,20 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main (int argc, char** argv) {
-    double arr[10];
+int main() {
+    double numbers[10];
+    double sum = 0.0;
+    printf("Введите 10 вещественных чисел:\n");
 
-    for (int i = 0; i<10; i++) {
-        arr[i] = atof(argv[i + 1]);
-        printf("%f ", arr[i]);
+    for (int i = 0; i < 10; i++) {
+        scanf("%lf", &numbers[i]);
+        sum += numbers[i];
     }
 
-    double sum = 0;
 
-    for (int i = 0; i < 10; i++){
-        sum += arr[i];
-    }
+    double average = sum / 10.0;
 
-    printf("%.3f", sum / 10);
+
+    printf("Среднее арифметическое: %.3f\n", average);
+
+    return 0;
 }
